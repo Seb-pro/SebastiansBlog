@@ -35,7 +35,7 @@ export class CreateBlogComponent implements OnInit {
       return;
     }
     if (this.mode == 'create'){
-      this.blogService.PostBlogs(form.value.title, form.value.content);
+      this.blogService.postBlogs(form.value.title, form.value.content);
     }else {
       this.blogService.putBlog(this.blogId, form.value.title, form.value.content)
     }

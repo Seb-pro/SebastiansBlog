@@ -31,7 +31,7 @@ export class BlogsService {
     });
   }
 
-  UpdatedBlogListner() {
+  updatedBlogListner() {
     return this.updatedBlog.asObservable();
   }
 
@@ -39,7 +39,7 @@ export class BlogsService {
     return this.http.get<{_id: string, title: string, content: string}>('http://localhost:3000/api/blogs/' + id);
   }
 
-  PostBlogs(title: string, content: string) {
+  postBlogs(title: string, content: string) {
     const blog: Blog = { id: null, title: title, content: content };
     this.http.post<{message: string, blogId: string}>('http://localhost:3000/api/blogs', blog)
     .subscribe(data => {
@@ -65,7 +65,7 @@ export class BlogsService {
     })
   }
 
-  DeleteBlog(blogId: string) {
+  deleteBlog(blogId: string) {
     this.http.delete('http://localhost:3000/api/blogs/' + blogId)
     .subscribe(() => {
       const removeDeletedBlog = this.blogs.filter(blog => blog.id !== blogId);

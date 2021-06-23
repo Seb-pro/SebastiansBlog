@@ -22,13 +22,13 @@ export class BlogListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.blogService.getBlogs();
-    this.blogSubcription = this.blogService.UpdatedBlogListner().subscribe((blogs: Blog[]) => {
+    this.blogSubcription = this.blogService.updatedBlogListner().subscribe((blogs: Blog[]) => {
       this.blogs = blogs;
     });
   }
 
   Delete(blogId: string) {
-    this.blogService.DeleteBlog(blogId);
+    this.blogService.deleteBlog(blogId);
   }
 
   ngOnDestroy() {
