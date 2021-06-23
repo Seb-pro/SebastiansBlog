@@ -1,0 +1,29 @@
+<mat-card>
+  <form (submit)="AddBlog(blogForm)" #blogForm="ngForm">
+    <mat-form-field>
+      <input
+      matInput
+      type="text"
+      name="title"
+      [ngModel]="blog?.title"
+      required
+      placeholder="Titel"
+      #title="ngModel">
+      <mat-error *ngIf="title.invalid">Title skal udfyldes</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+      matInput rows="6"
+      name="content"
+      [ngModel]="blog?.content"
+      required
+      placeholder="Tekst"
+      #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Tekstfeltet skal udfyldes</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit">GEM</button>
+  </form>
+</mat-card>

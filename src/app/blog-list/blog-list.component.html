@@ -1,0 +1,13 @@
+<mat-accordion multi="true" *ngIf="blogs.length > 0">
+  <mat-expansion-panel *ngFor="let blog of blogs">
+    <mat-expansion-panel-header>
+      {{ blog.title }}
+    </mat-expansion-panel-header>
+    <p>{{ blog.content }}</p>
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="['/edit', blog.id]">REDIGERE</a>
+      <button mat-button color="warn" (click)="Delete(blog.id)">SLET</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="blog-info mat-body-1" *ngIf="blogs.length <= 0">No blogs is added</p>
